@@ -22,7 +22,11 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
-  elasticsearch:
-    image: elasticsearch:5
+  pma:
+    image: phpmyadmin/phpmyadmin:4.8.0
+    ports:
+    - "8081:80"
     environment:
-      discovery.type: single-node
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD:
